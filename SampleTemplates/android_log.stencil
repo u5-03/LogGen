@@ -1,0 +1,35 @@
+// Generated using LogGen, Do not edit manually!
+{% macro eventLogFunction logDictionary %}
+    /**
+    No. {{ logDictionary.id }}
+    Category: {{ logDictionary.category }}
+    Transmission timing: {{ logDictionary.transmissionTiming }}
+    {% if logDictionary.remarks != "" %}Remarks: {{ logDictionary.remarks }}{% endif %}
+    */
+    {% if logDictionary.isVariablesEmpty %}
+    public fun send{% filter snakeToCamelCase %}{{ logDictionary.eventName }}{% endfilter %}Log() {
+    {% else %}
+    public fun send{% filter snakeToCamelCase %}{{ logDictionary.eventName }}{% endfilter %}Log(parameter: Log{% filter snakeToCamelCase %}{{ logDictionary.eventName }}{% endfilter %}Parameter) {
+    {% endif %}
+        // Add common log-sending code!
+        // sendLog("{{ logDictionary.eventName }}", parameter.asDictionary())
+    }
+
+{% endmacro %}
+{% macro logParameterStructParameter logDictionary %}
+public data class Log{% filter snakeToCamelCase %}{{ logDictionary.eventName }}{% endfilter %}Parameter(
+{% for variableDictionary in logDictionary.variables where variableDictionary.shouldShow %}
+    val {% filter snakeToCamelCase|lowerFirstLetter %}{{ variableDictionary.key }}{% endfilter %}: String{% if not forloop.last %},{% endif %}
+{% endfor %}
+)
+{% endmacro %}
+
+public class LogManager {
+{% for logDictionary in logDictionaries %}
+    {% call eventLogFunction logDictionary %}
+{% endfor %}
+}
+
+{% for logDictionary in logDictionaries where not logDictionary.isVariablesEmpty %}
+    {% call logParameterStructParameter logDictionary %}
+{% endfor %}

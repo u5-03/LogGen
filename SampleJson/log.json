@@ -1,0 +1,323 @@
+{
+	"eventData": [
+		{
+			"id": 1,
+			"category": "Authentication",
+			"event_name": "sign_in_success",
+			"transmission_timing": "When successfully signed in",
+			"remarks": "",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": false
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": false
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": false
+				},
+				{
+					"key": "offset",
+					"shouldShow": false
+				}
+			]
+		},
+		{
+			"id": 2,
+			"category": "Authentication",
+			"event_name": "sign_in_failure",
+			"transmission_timing": "When signing in fails",
+			"remarks": "",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": false
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": true
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": false
+				},
+				{
+					"key": "offset",
+					"shouldShow": false
+				}
+			]
+		},
+		{
+			"id": 3,
+			"category": "Authentication",
+			"event_name": "sign_up_success",
+			"transmission_timing": "When successfully signed up",
+			"remarks": "",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": false
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": false
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": false
+				},
+				{
+					"key": "offset",
+					"shouldShow": false
+				}
+			]
+		},
+		{
+			"id": 4,
+			"category": "Authentication",
+			"event_name": "sign_up_failure",
+			"transmission_timing": "When signing up fails",
+			"remarks": "",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": false
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": true
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": false
+				},
+				{
+					"key": "offset",
+					"shouldShow": false
+				}
+			]
+		},
+		{
+			"id": 5,
+			"category": "Authentication",
+			"event_name": "mail_reset",
+			"transmission_timing": "When tapping the reset email address button",
+			"remarks": "Do not send when the character string of the email address is empty",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": false
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": false
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": false
+				},
+				{
+					"key": "offset",
+					"shouldShow": false
+				}
+			]
+		},
+		{
+			"id": 6,
+			"category": "Top",
+			"event_name": "top_api_success",
+			"transmission_timing": "When succeeding in getting the top API",
+			"remarks": "",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": true
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": false
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": false
+				},
+				{
+					"key": "offset",
+					"shouldShow": false
+				}
+			]
+		},
+		{
+			"id": 7,
+			"category": "Top",
+			"event_name": "top_api_failure",
+			"transmission_timing": "When the top API request fails",
+			"remarks": "Send even if paging or search fails",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": true
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": false
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": false
+				},
+				{
+					"key": "offset",
+					"shouldShow": false
+				}
+			]
+		},
+		{
+			"id": 8,
+			"category": "Top",
+			"event_name": "top_api_paging",
+			"transmission_timing": "When paging with the top API request",
+			"remarks": "",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": true
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": false
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": true
+				},
+				{
+					"key": "offset",
+					"shouldShow": true
+				}
+			]
+		},
+		{
+			"id": 9,
+			"category": "Top",
+			"event_name": "top_search",
+			"transmission_timing": "When tapping the search button at the top",
+			"remarks": "",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": true
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": false
+				},
+				{
+					"key": "keyword",
+					"shouldShow": true
+				},
+				{
+					"key": "index",
+					"shouldShow": true
+				},
+				{
+					"key": "offset",
+					"shouldShow": true
+				}
+			]
+		},
+		{
+			"id": 10,
+			"category": "Detail",
+			"event_name": "detail_api_sucess",
+			"transmission_timing": "When the detail API request fails",
+			"remarks": "",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": true
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": false
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": false
+				},
+				{
+					"key": "offset",
+					"shouldShow": false
+				}
+			]
+		},
+		{
+			"id": 11,
+			"category": "Detail",
+			"event_name": "detail_api_failure",
+			"transmission_timing": "When the detail API request fails",
+			"remarks": "",
+			"variables": [
+				{
+					"key": "user_id",
+					"shouldShow": true
+				},
+				{
+					"key": "error_msg",
+					"shouldShow": true
+				},
+				{
+					"key": "keyword",
+					"shouldShow": false
+				},
+				{
+					"key": "index",
+					"shouldShow": false
+				},
+				{
+					"key": "offset",
+					"shouldShow": false
+				}
+			]
+		}
+	]
+}

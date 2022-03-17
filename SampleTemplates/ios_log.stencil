@@ -1,0 +1,50 @@
+// swiftlint:disable all
+// Generated using LogGen, Do not edit manually!
+
+import Foundation
+{% macro eventLogFunction logDictionary %}
+    /**
+    No. {{ logDictionary.id }}
+    Category: {{ logDictionary.category }}
+    Transmission timing: {{ logDictionary.transmissionTiming }}
+    {% if logDictionary.remarks != "" %}Remarks: {{ logDictionary.remarks }}{% endif %}
+    */
+    {% if logDictionary.isVariablesEmpty %}
+    public static func send{% filter snakeToCamelCase %}{{ logDictionary.eventName }}{% endfilter %}Log() {
+    {% else %}
+    public static func send{% filter snakeToCamelCase %}{{ logDictionary.eventName }}{% endfilter %}Log(parameter: Log{% filter snakeToCamelCase %}{{ logDictionary.eventName }}{% endfilter %}Parameter) {
+    {% endif %}
+        // Add common log-sending code!
+        // sendLog(eventName: "{{ logDictionary.eventName }}", parameter: parameter.asDictionary())
+    }
+
+{% endmacro %}
+{% macro logParameterStructParameter logDictionary %}
+public struct Log{% filter snakeToCamelCase %}{{ logDictionary.eventName }}{% endfilter %}Parameter: Codable {
+    {% for variableDictionary in logDictionary.variables where variableDictionary.shouldShow %}
+    public let {% filter snakeToCamelCase|lowerFirstLetter %}{{ variableDictionary.key }}{% endfilter %}: String
+    {% endfor %}
+
+    public init(
+    {% for variableDictionary in logDictionary.variables where variableDictionary.shouldShow %}
+        {% filter snakeToCamelCase|lowerFirstLetter %}{{ variableDictionary.key }}{% endfilter %}: String{% if not forloop.last %},{% endif %}
+    {% endfor %}
+    ) {
+        {% for variableDictionary in logDictionary.variables where variableDictionary.shouldShow %}
+        self.{% filter snakeToCamelCase|lowerFirstLetter %}{{ variableDictionary.key }}{% endfilter %} = {% filter snakeToCamelCase|lowerFirstLetter %}{{ variableDictionary.key }}{% endfilter %}
+        {% endfor %}
+    }
+}
+
+{% endmacro %}
+
+public class LogManager {
+
+    {% for logDictionary in logDictionaries %}
+        {% call eventLogFunction logDictionary %}
+    {% endfor %}
+}
+
+{% for logDictionary in logDictionaries where not logDictionary.isVariablesEmpty %}
+    {% call logParameterStructParameter logDictionary %}
+{% endfor %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script type='text/javascript'>
+      // execute download
+      function handleDownload() {
+        // fetch json
+        var content = <?= getData(); ?>;
+        // generate download URL
+        
+        var blob = new Blob([ content ], { "type" : "application/json"});
+        document.getElementById("download").href = window.URL.createObjectURL(blob);
+      }
+  </script>
+  </head>
+  <body>
+    <!-- button for downloading JSON：Please set JSON name as appropriate-->
+    <a id="download" href="#" download="log.json" onclick="handleDownload()">Download</a>
+  </body>
+</html>
